@@ -8,8 +8,9 @@ namespace MediaWeb.Domain.Songs
     public class Song
     {
         public int Id { get; set; }
-        public Artist Artist { get; set; }
-        public Genre Genre { get; set; }
+        public ICollection<SongArtist> Artists { get; set; }
+        public ICollection<SongGenre> Genres { get; set; }
         public DateTime ReleaseDate { get; set; }
+        public int Length { get; set; }
     }
 }

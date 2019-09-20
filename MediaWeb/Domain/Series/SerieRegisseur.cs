@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MediaWeb.Domain.Series
 {
-    public class Regisseur
+    public class SerieRegisseur
     {
         public int Id { get; set; }
         public string Naam { get; set; }

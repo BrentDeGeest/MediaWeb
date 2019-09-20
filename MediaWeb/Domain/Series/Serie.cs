@@ -7,8 +7,11 @@ namespace MediaWeb.Domain.Series
 {
     public class Serie
     {
-        public Regisseur Regiseur { get; set; }
-        public string MyProperty { get; set; }
+        public int Id { get; set; }
+        public ICollection<RegisseurSerieRegisseur> Regisseurs { get; set; }
+        public ICollection<GenreSerieGenre> Genres { get; set; }
+        public string Name { get; set; }
+        public DateTime ReleaseDate { get; set; }
 
     }
 }

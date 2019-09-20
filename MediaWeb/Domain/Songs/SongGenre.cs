@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MediaWeb.Domain.Songs
 {
-    public class Genre
+    public class SongGenre
     {
         public int Id { get; set; }
         public string Rap { get; set; }
