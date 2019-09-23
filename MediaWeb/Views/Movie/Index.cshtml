@@ -1,0 +1,25 @@
+﻿@model IEnumerable<MediaWeb.Models.Movie.MovieListViewModel>
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+<table class="table table-hover">
+    @foreach (var movie in Model)
+    {
+        <tr>
+            <td>
+                @movie.Title
+                <a class="btn btn-primary" asp-action="Detail" asp-controller="Movie" asp-route-id="@movie.Id">Show Details</a>
+            </td>
+        </tr>
+    }
+</table>
+
+@if (!Model.Any())
+{
+    <p>Er zitten nog geen films in de lijst.</p>
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <a asp-action="Create" asp-controller="Movie" class="btn btn-primary">Create movie</a>
+}

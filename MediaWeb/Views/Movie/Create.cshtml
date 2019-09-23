@@ -1,0 +1,41 @@
+﻿@model MediaWeb.Models.Movie.MovieCreateViewModel
+
+    <form asp-controller="Movie" asp-action="Create" method="post">
+
+        <div class="form-group">
+            <label asp-for="Title"></label>
+            <input class="form-control" asp-for="Title" />
+            <span class="text-danger" asp-validation-for="Title"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Length"></label>
+            <input class="form-control" type="number" asp-for="Length" />
+            <span class="text-danger" asp-validation-for="Length"></span>
+        </div>
+
+
+
+        <div class="form-group">
+            <label asp-for="ReleaseDate"></label>
+            <input class="form-control" asp-for="ReleaseDate" />
+            <span class="text-danger" asp-validation-for="ReleaseDate"></span>
+
+        </div>
+
+        @foreach (var genre in Model.Genres)
+        {
+            <label>@genre.Genre.Name</label>
+            <input type="checkbox" value="@genre.GenreId"/>
+        }
+        
+        
+           
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <input class="form-control" asp-for="Description" />
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+
+
+    </form>

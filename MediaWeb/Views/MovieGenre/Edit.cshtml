@@ -1,0 +1,15 @@
+﻿@model MediaWeb.Models.Movie.Genre.MovieGenreEditViewModel
+
+
+<form asp-controller="MovieGenre" asp-action="Edit" method="post">
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+
+
+    <button class="btn btn-primary" type="submit">Edit genre</button>
+
+</form>

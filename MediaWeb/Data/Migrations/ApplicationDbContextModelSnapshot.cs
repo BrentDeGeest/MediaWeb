@@ -38,6 +38,8 @@ namespace MediaWeb.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<byte[]>("Cover");
+
                     b.Property<string>("Description");
 
                     b.Property<int>("Length");
@@ -57,11 +59,7 @@ namespace MediaWeb.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Comedy");
-
-                    b.Property<string>("Horror");
-
-                    b.Property<string>("Thriller");
+                    b.Property<string>("Name");
 
                     b.HasKey("Id");
 
@@ -82,7 +80,7 @@ namespace MediaWeb.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MovieRegisseur");
+                    b.ToTable("MovieRegisseurs");
                 });
 
             modelBuilder.Entity("MediaWeb.Domain.Movies.RegisseurMovieRegisseur", b =>
@@ -110,7 +108,7 @@ namespace MediaWeb.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Author");
+                    b.ToTable("Authors");
                 });
 
             modelBuilder.Entity("MediaWeb.Domain.Podcasts.AuthorPodcast", b =>
@@ -188,7 +186,7 @@ namespace MediaWeb.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Naam");
+                    b.Property<string>("Name");
 
                     b.HasKey("Id");
 
@@ -203,9 +201,9 @@ namespace MediaWeb.Data.Migrations
 
                     b.Property<DateTime>("BirthDate");
 
-                    b.Property<string>("Naam");
+                    b.Property<string>("FirstName");
 
-                    b.Property<string>("Voornaam");
+                    b.Property<string>("Name");
 
                     b.HasKey("Id");
 
@@ -224,7 +222,7 @@ namespace MediaWeb.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Artist");
+                    b.ToTable("Artists");
                 });
 
             modelBuilder.Entity("MediaWeb.Domain.Songs.GenreSongGenre", b =>
@@ -249,6 +247,8 @@ namespace MediaWeb.Data.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("Length");
+
+                    b.Property<string>("Name");
 
                     b.Property<DateTime>("ReleaseDate");
 
@@ -276,11 +276,7 @@ namespace MediaWeb.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("HipHop");
-
-                    b.Property<string>("LoFi");
-
-                    b.Property<string>("Rap");
+                    b.Property<string>("Name");
 
                     b.Property<int?>("SongId");
 
@@ -288,7 +284,7 @@ namespace MediaWeb.Data.Migrations
 
                     b.HasIndex("SongId");
 
-                    b.ToTable("SongGenre");
+                    b.ToTable("SongGenres");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

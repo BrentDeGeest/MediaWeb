@@ -8,9 +8,7 @@ namespace MediaWeb.Domain.Songs
     public class SongGenre
     {
         public int Id { get; set; }
-        public string Rap { get; set; }
-        public string HipHop { get; set; }
-        public string LoFi { get; set; }
+        public string Name { get; set; }
 
     }
 }
