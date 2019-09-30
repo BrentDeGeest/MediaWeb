@@ -23,19 +23,28 @@
 
         </div>
 
-        @foreach (var genre in Model.Genres)
+
+        @*@foreach (var item in Model.Genresd)
         {
-            <label>@genre.Genre.Name</label>
-            <input type="checkbox" value="@genre.GenreId"/>
+            <input type="checkbox"  /> @item
+        }*@
+
+        @for (int i = 0; i < Model.Genres.Count; i++)
+        {
+            <input type="checkbox" asp-for="Genres[i].Checked">
+            <label asp-for="@Model.Genres">@Model.Genres[i].Naam</label>
+            <input type="hidden" asp-for="Genres[i].Id">
+            <input type="hidden" asp-for="Genres[i].Naam">
         }
-        
-        
-           
+
+
         <div class="form-group">
             <label asp-for="Description"></label>
             <input class="form-control" asp-for="Description" />
             <span class="text-danger" asp-validation-for="Description"></span>
         </div>
+
+        <button class="btn btn-primary" type="submit">Create Movie</button>
 
 
     </form>

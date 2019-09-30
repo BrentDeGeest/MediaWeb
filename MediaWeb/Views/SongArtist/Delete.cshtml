@@ -1,0 +1,9 @@
+﻿@model MediaWeb.Models.Song.Artist.ArtistDeleteViewModel
+
+
+<form asp-controller="SongArtist" asp-action="Delete" method="delete">
+
+    <p>Wil je zeker @Model.Name @Model.FirstName verwijderen.</p>
+    <button asp-action="ConfirmDelete" asp-controller="SongArtist" asp-route-id="@Model.Id">Ja</button>
+    <button asp-action="Index" asp-controller="SongArtist">Nee</button>
+</form>

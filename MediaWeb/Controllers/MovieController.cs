@@ -1,9 +1,12 @@
 ﻿using MediaWeb.Data;
 using MediaWeb.Domain.Movies;
+using MediaWeb.Models;
 using MediaWeb.Models.Movie;
+using MediaWeb.Models.Movie.Genre;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -38,7 +41,23 @@ namespace MediaWeb.Controllers
 
         public IActionResult Create()
         {
-            return View();
+            var model = new MovieCreateViewModel();
+            //IEnumerable<MovieGenre> genresFromDatabase = _context.GetMovieGenres();
+            //foreach (var item in genresFromDatabase)
+            //{
+            //    Debug.Write(item.Name);
+
+            //}
+
+            var genresFromDatabase = _context.GetMovieGenres();
+
+            foreach (var genre in genresFromDatabase)
+            {
+                model.Genres.Add(new CheckboxViewModel() { Id = genre.Id, Naam = genre.Name,Checked=false });
+            }
+
+            return View(model);
+           // return View(model);
         }
 
         [HttpPost]
@@ -62,15 +81,33 @@ namespace MediaWeb.Controllers
                 Title = model.Title,
                 Cover = model.Cover,
                 Description = model.Description,
-                Genres = model.Genres,
                 Length = model.Length,
                 Regisseurs = model.Regisseurs,
                 ReleaseDate = model.ReleaseDate
             };
-
+            foreach (var item in model.Genres.Where(x=>x.Checked==true))
+            {
+               
+            }
             _context.InsertMovie(m);
 
             return RedirectToAction("Index");
+        }
+
+        public IActionResult Detail(int id)
+        {
+            Movie movieFromDb = _context.GetMovie(id);
+
+            MovieDetailViewModel model = new MovieDetailViewModel()
+            {
+                Title = movieFromDb.Title,
+                Description = movieFromDb.Description,
+                //Genre = movieFromDb.Genre,
+                Length = movieFromDb.Length,
+                ReleaseDate = movieFromDb.ReleaseDate
+            };
+
+            return View(model);
         }
     }
 }

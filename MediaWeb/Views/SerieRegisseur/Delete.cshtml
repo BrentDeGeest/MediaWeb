@@ -1,0 +1,9 @@
+﻿@model MediaWeb.Models.Serie.Regisseur.SerieRegisseurDeleteViewModel
+
+
+<form asp-controller="SerieRegisseur" asp-action="Delete" method="delete">
+
+    <p>Wil je zeker @Model.Name @Model.FirstName verwijderen.</p>
+    <button asp-action="ConfirmDelete" asp-controller="SerieRegisseur" asp-route-id="@Model.Id">Ja</button>
+    <button asp-action="Index" asp-controller="SerieRegisseur">Nee</button>
+</form>

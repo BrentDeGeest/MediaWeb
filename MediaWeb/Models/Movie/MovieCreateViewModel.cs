@@ -18,13 +18,22 @@ namespace MediaWeb.Models.Movie
         public string Description { get; set; }
 
         [Required]
-        public IEnumerable<GenreMovieGenre> Genres { get; set; }
+        //public ICollection<GenreMovieGenre> Genres { get; set; }
+        //public List<string> Genresd { get; set; }
+        public List<CheckboxViewModel> Genres { get; set; } = new List<CheckboxViewModel>();
 
-        public IEnumerable<RegisseurMovieRegisseur> Regisseurs { get; set; }
+        public List<RegisseurMovieRegisseur> Regisseurs { get; set; } = new List<RegisseurMovieRegisseur>();
 
         [DataType(DataType.Date)]
         public DateTime? ReleaseDate { get; set; }
 
         public byte[] Cover { get; set; }
+
+        public MovieCreateViewModel()
+        {
+            //Genres = new List<GenreMovieGenre>();
+            //Regisseurs = new List<RegisseurMovieRegisseur>();
+            //Genresd = new List<string>();
+        }
     }
 }

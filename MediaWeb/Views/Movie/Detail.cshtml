@@ -1,0 +1,43 @@
+﻿@model MediaWeb.Models.Movie.MovieDetailViewModel
+
+
+
+<strong>Title</strong>
+<p>@Model.Title</p>
+
+<strong>Description</strong>
+<p>@Model.Description</p>
+
+<strong>Length</strong>
+<p>@Model.Length</p>
+
+@*<strong>Genre</strong>
+    <p>@Model.Genre</p>*@
+
+
+
+<strong>Release date</strong>
+@if (Model.ReleaseDate.HasValue)
+{
+
+    <p>@Model.ReleaseDate.Value.ToShortDateString()</p>
+    @if (Model.ReleaseDate.Value > DateTime.Today)
+    {
+        int daydiff = (int)((DateTime.Today - Model.ReleaseDate.Value.Date).TotalDays) * -1;
+        <p>De film komt uit in @daydiff dag(en)</p>
+    }
+    else if (Model.ReleaseDate.Value == DateTime.Today)
+    {
+        <p> De film is vandaag uitgekomen.</p>
+    }
+    else if (Model.ReleaseDate.Value < DateTime.Today)
+    {
+        <p> De film is al uit van @Model.ReleaseDate.Value.ToShortDateString().</p>
+    }
+}
+else
+{
+    <p>Deze film heeft geen release date.</p>
+}
+
+<a class="btn btn-primary" href="/Movie">Go back</a>

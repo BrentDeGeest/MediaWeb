@@ -1,0 +1,9 @@
+﻿@model MediaWeb.Models.Podcast.Author.AuthorDeleteViewModel
+
+
+<form asp-controller="PodcastAuthor" asp-action="Delete" method="delete">
+
+    <p>Wil je zeker @Model.FirstName @Model.LastName verwijderen?</p>
+    <button asp-action="ConfirmDelete" asp-controller="PodcastAuthor" asp-route-id="@Model.Id">Ja</button>
+    <button asp-action="Index" asp-controller="PodcastAuthor">Nee</button>
+</form>

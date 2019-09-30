@@ -1,11 +1,57 @@
 ﻿<ul>
     <li>
-        <a asp-area="" asp-controller="MovieGenre" asp-action="Index">Movie Genres</a>
+        Movies...
+
     </li>
+    <ul>
+        <li>
+            <a asp-area="" asp-controller="MovieGenre" asp-action="Index">Movie Genres</a>
+        </li>
+        <li>
+            <a asp-area="" asp-controller="MovieRegisseur" asp-action="Index">Movie Regisseurs</a>
+        </li>
+        <li>
+            <a asp-area="" asp-controller="Movie" asp-action="Index">Movies</a>
+        </li>
+    </ul>
     <li>
-        <a asp-area="" asp-controller="MovieRegisseur" asp-action="Index">Movie Regisseurs</a>
+        Songs...
     </li>
+    <ul>
+        <li>
+            <a asp-area="" asp-controller="SongGenre" asp-action="Index">Song Genres</a>
+        </li>
+        <li>
+            <a asp-area="" asp-controller="SongArtist" asp-action="Index">Song Artists</a>
+        </li>
+        <li>
+            <a asp-area="" asp-controller="Song" asp-action="Index">Songs</a>
+        </li>
+    </ul>
     <li>
-        <a asp-area="" asp-controller="Movie" asp-action="Index">Movies</a>
+        Series...
     </li>
+    <ul>
+        <li>
+            <a asp-area="" asp-controller="SerieGenre" asp-action="Index">Serie Genres</a>
+        </li>
+        <li>
+            <a asp-area="" asp-controller="SerieRegisseur" asp-action="Index">Serie Regisseurs</a>
+        </li>
+        <li>
+            <a asp-area="" asp-controller="Serie" asp-action="Index">Series</a>
+        </li>
+    </ul>
+    <li>
+        Podcasts...
+    </li>
+    <ul>
+        <li>
+            <a asp-area="" asp-controller="PodcastAuthor" asp-action="Index">Podcast Authors</a>
+        </li>
+        
+        <li>
+            <a asp-area="" asp-controller="Podcast" asp-action="Index">Podcasts</a>
+        </li>
+    </ul>
 </ul>
